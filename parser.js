@@ -191,11 +191,13 @@ class ChemEquation {
         }
         let unFVC = unknowns.length;
         for (let i = 0; i < FVC; i++) {
+            let tmp = [];
             for (let j = 0; j < i; j++)
-                unknowns.push([ new Faction(0, 1) ]);
-            unknowns.push([ new Faction(1, 1) ]);
+                tmp.push(new Faction(0, 1));
+            tmp.push(new Faction(1, 1));
             for (let j = i + 1; j < FVC; j++)
-                unknowns.push([ new Faction(0, 1) ]);
+                tmp.push(new Faction(0, 1));
+            unknowns.push(tmp);
         }
         // console.log(unknowns);
         for (let i = unFVC - 1; ~i; i--) {
